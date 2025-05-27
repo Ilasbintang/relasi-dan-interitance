@@ -4,11 +4,10 @@ using namespace std;
 
 class dokter; 
 
-
-class pasin{
+class pasien{
     public:
     string nama;
-    vector<dokter*> daftar dokter;
+    vector<dokter*> daftar_dokter;
     pasien(string pNama) : nama(pNama) {
         cout << "pasien \"" << nama << "\" ada\n";
     }
@@ -16,7 +15,7 @@ class pasin{
         cout <<"pasien \"" << nama
         << "\" tidak ada\n";
     }
-    void tambahDokter(dokter);
+    void tambahDokter(dokter*);
     void cetakDokter();
 
 };
@@ -33,11 +32,12 @@ class dokter {
             cout << "Dokter \"" << nama
             << "\" tidak ada\n";
         }
-        void tambahPasien(pasien*);
+        void tambahPasien(Pasien*);
         void cetakPasien();
 };
 
-void pasien:tambahDokter(dokter* pDokter) {
+void pasien:
+    tambahDokter(dokter* pDokter) {
     daftar_dokter.push_back(pDokter);
 }
 
@@ -49,4 +49,39 @@ void pasien:cetakDokter() {
         cout << a->nama << "\n";
     }
     cout << endl;
+}
+void  dokter:: tambahPasien(pasien* pPasien) {
+    daftar_pasien.push_back(pPasien);
+}
+
+void dokter::cetakPasien() {
+    cout << "Daftar pasien dari dokter \"" << this->nama << "\":\n";
+    for (auto& a : daftar_pasien) {
+        cout << a->nama << "\n";
+    }
+    cout << endl;
+}
+
+int main() {
+    dokter* varDokter1 = new dokter("dr.Budi");
+    dokter* varDokter2 = new dokter("dr.Tono");
+    pasien* varPasien1 = new pasien("Andi");
+    pasien* varPasien2 = new pasien("Lia");
+
+    varDokter1->tambahPasien(varDokter1);
+    varDokter2->tambahpasien(varDokter2);
+    varDokter3->tambahPasien(varDokter3);
+
+    varDokter1->cetakPasien();
+    varDokter2->cetakPasien();
+    varPasien1->cetakDokter();
+    varPasien2->cetakDokter();
+
+    delete varPasien1;
+    delete varPasien2;
+    delete varDokter1:
+    delete varDokter2;
+
+    return 0;
+
 }
